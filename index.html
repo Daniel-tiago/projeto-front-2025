@@ -21,6 +21,70 @@
       <!-- Os filmes serão carregados aqui via JavaScript -->
     </div>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const filmes = [
+        {
+          titulo: "Velozes e Furiosos 11: O Despertar Das Feras",
+          youtubeId: "6q7lPoYXboQ",
+          slogan: "A Grande batalha final!"
+        },
+        {
+          titulo: "Homem-Aranha: Sem Volta Para Casa",
+          youtubeId: "ZYzbalQ6Lg8",
+          slogan: "O multiverso foi aberto — prepare-se para o impossível!"
+        },
+        {
+          titulo: "Top Gun 3",
+          youtubeId: "qSqVVswa420",
+          slogan: "Prepare-se para uma aventura épica!"
+        },
+        {
+          titulo: "Pica-Pau: As Férias No Acampamento",
+          youtubeId: "WWG1LFKbqLo",
+          slogan: "O filme que vai surpreender você!"
+        },
+        {
+          titulo: "DreamWorks Madagascar",
+          youtubeId: "s9mGj_AmOIk",
+          slogan: "Uma nova jornada começa aqui!"
+        },
+        {
+          titulo: "Relâmpago McQueen", // Novo filme
+          youtubeId: "FfWM49wtyGE", // ID do novo vídeo
+          slogan: "Prepare-se para o maior evento do ano!" // Substitua por um slogan real
+        }
+      ];
+
+      const lista = document.getElementById('lista-filmes');
+
+      filmes.forEach(filme => {
+        const col = document.createElement('div');
+        col.className = 'col-md-6 col-lg-4';
+
+        col.innerHTML = `
+          <div class="card h-100 shadow-sm">
+            <div class="ratio ratio-16x9">
+              <iframe 
+                src="https://www.youtube.com/embed/${filme.youtubeId}" 
+                title="Trailer de ${filme.titulo}" 
+                allowfullscreen 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+              </iframe>
+            </div>
+            <div class="card-body bg-dark text-white">
+              <h6 class="card-title">${filme.titulo}</h6>
+              <p class="card-text">${filme.slogan}</p>
+            </div>
+          </div>
+        `;
+
+        lista.appendChild(col);
+      });
+    });
+  </script>
+
 </body>
 
 </html>
